@@ -4,7 +4,6 @@ const os = require('os');
 const AdmZip = require('adm-zip');
 
 const BASE_URL = 'https://api.signus.ai';
-const API_URL_PREFIX = '/api/signus';
 
 function out(obj) {
   console.log(JSON.stringify(obj));
@@ -113,7 +112,7 @@ async function main() {
   fs.mkdirSync(outputDir, { recursive: true });
   log(`Output dir: ${outputDir}`);
 
-  const endpoint = `${BASE_URL}${API_URL_PREFIX}/v0/signature-generations/font`;
+  const endpoint = `${BASE_URL}/v1/signatures/generations/font`;
   log(`POST ${endpoint}`);
   const response = await postJson(endpoint, payload);
 
